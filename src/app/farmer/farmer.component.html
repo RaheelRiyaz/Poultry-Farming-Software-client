@@ -1,0 +1,89 @@
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a class="text-light">Poultry Farming Leisure</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img
+            async
+            class="img-responsive img-rounded"
+            alt="User picture"
+            src="https://img.freepik.com/free-photo/hens-factory-chicken-cages_335224-1408.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1703289600&semt=ais"
+          />
+        </div>
+        <div class="user-info text-light">
+          <span class="user-name"
+            >{{ userInfo.userName }} <br />
+            <strong>{{ userInfo.email }}</strong>
+          </span>
+        </div>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li class="sidebar-dropdown">
+            <a class="text-light" [routerLink]="['/admin']">
+              <i class="fa fa-home"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a class="text-light" [routerLink]="['hatches']">
+              <i class="fa-solid fa-h"></i>
+              <span>Hatches</span>
+            </a>
+          </li>
+
+          <li class="sidebar-dropdown">
+            <a class="text-light" [routerLink]="['/farmer/customers']">
+              <i class="fa-solid fa-users"></i>
+              <span>Customers</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a class="text-light" [routerLink]="['/farmer/customers/add']">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Add Customer</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a class="text-light" routerLink="/farmer/accounts">
+              <i class="fa-solid fa-gear"></i>
+              <span>Account</span>
+            </a>
+          </li>
+          <li class="sidebar-dropdown cursor-pointer">
+            <a class="text-light" (click)="commonService.logOut()">
+              <i class="fa-solid fa-gear"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+      <div class="toggler d-flex justify-content-end">
+        <i
+          #toggleicon
+          (click)="toggleDarkMode(toggleicon)"
+          class="toggle fa-solid me-3 fa-moon cursor-pointer"
+        ></i>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->

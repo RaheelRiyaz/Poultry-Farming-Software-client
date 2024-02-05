@@ -1,0 +1,15 @@
+.loading-animation-placeholder {
+  /* Add your loading animation styles or use an image */
+  background-color: #ddd;
+  height: 100%;
+}
+
+.loading-skeleton {
+  background-color: #eee;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.loading-skeleton.title {
+  width: 70%;
+}

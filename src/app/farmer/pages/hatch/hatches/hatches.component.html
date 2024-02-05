@@ -1,0 +1,131 @@
+<button class="btn btn-light d-block mt-2" routerLink="add-hatch">
+  Add new hatch +
+</button>
+<div class="d-flex justify-content-start align-items-center hatches flex-wrap">
+  @for (hatch of hatches; track $index) {
+  <div
+    class="card mt-3 me-3"
+    style="width: 28rem; min-height: 16rem; height: auto c"
+  >
+    <div class="card-body p-3">
+      @if (hatch.hatchStatus === 2) {
+      <p class="text-success d-flex justify-content-center align-items-center">
+        Active <span class="dot ms-2"></span>
+      </p>
+      }
+      <span class="d-flex justify-content-between">
+        <h5 class="card-title">{{ hatch.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">
+          Day
+          <span class="day" [class.active]="hatch.hatchStatus === 2">{{
+            hatch.daysPassed
+          }}</span>
+        </h6>
+      </span>
+      <h6 class="card-subtitle mb-2 text-body-secondary">
+        {{ hatch.noOfChicks }} Chicks
+      </h6>
+
+      <h6 class="card-subtitle mb-2 text-body-secondary">
+        {{ hatch.totalMotality }} Motality
+      </h6>
+      <p class="card-link text-info">{{ hatch.createdOn | date }}</p>
+      <div class="form-check form-switch form-check-reverse">
+        <input
+          class="form-check-input cursor-pointer"
+          type="checkbox"
+          #checkBox
+          [checked]="hatch.hatchStatus === 1"
+          (change)="changeHatchStatus(hatch.id, checkBox.checked)"
+          id="flexSwitchCheckReverse"
+        />
+        <label class="form-check-label" for="flexSwitchCheckReverse"
+          >Hatch Status</label
+        >
+      </div>
+      <div class="btns d-flex align-items-center flex-wrap">
+        <button class="btn btn-sm me-2 mt-2" [routerLink]="[hatch.id]">
+          Details
+        </button>
+        <button
+          class="btn btn-sm me-2 mt-2"
+          [routerLink]="['expenditures', hatch.id]"
+        >
+          Expenditures
+        </button>
+        <button
+          class="btn btn-sm me-2 mt-2"
+          [routerLink]="['motivalities', hatch.id]"
+        >
+          Motalities
+        </button>
+        <button class="btn btn-sm me-2 mt-2" [routerLink]="['sales', hatch.id]">
+          Sales
+        </button>
+        <button
+          class="btn btn-sm me-2 mt-2"
+          [routerLink]="['add-sale', hatch.id]"
+        >
+          Sell
+        </button>
+      </div>
+    </div>
+  </div>
+  } @empty {
+  <div class="card me-2 mt-2" style="width: 28rem">
+    <div class="card-body">
+      <h5 class="card-title">
+        <!-- Placeholder for Card Title -->
+        <div class="skeleton-line"></div>
+      </h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">
+        <!-- Placeholder for Card Subtitle -->
+        <div class="skeleton-line"></div>
+      </h6>
+      <p class="card-text">
+        <!-- Placeholder for Card Text -->
+      </p>
+
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <a class="card-link">
+        <!-- Placeholder for Card Link -->
+        <div class="skeleton-line"></div>
+      </a>
+      <a class="card-link">
+        <!-- Placeholder for Another Link -->
+        <div class="skeleton-line"></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="card mt-2" style="width: 28rem">
+    <div class="card-body">
+      <h5 class="card-title">
+        <!-- Placeholder for Card Title -->
+        <div class="skeleton-line"></div>
+      </h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">
+        <!-- Placeholder for Card Subtitle -->
+        <div class="skeleton-line"></div>
+      </h6>
+      <p class="card-text">
+        <!-- Placeholder for Card Text -->
+      </p>
+
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <div class="skeleton-line"></div>
+      <a class="card-link">
+        <!-- Placeholder for Card Link -->
+        <div class="skeleton-line"></div>
+      </a>
+      <a class="card-link">
+        <!-- Placeholder for Another Link -->
+        <div class="skeleton-line"></div>
+      </a>
+    </div>
+  </div>
+  }
+</div>

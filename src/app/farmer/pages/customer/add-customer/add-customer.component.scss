@@ -1,0 +1,13 @@
+.submit{
+    background-color: var(--primary-color);
+    transition: all .2s ease-in-out;
+}
+.submit:hover{
+    background-color: var(--btn-hover);
+}
+@media screen and (max-width: 767px) {
+  .card {
+    width: 100% !important;
+  }
+}
+

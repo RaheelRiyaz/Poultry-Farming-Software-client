@@ -1,0 +1,32 @@
+<div class="bs-example container" data-example-id="striped-table">
+  <div class="search-box mb-3">
+    <input
+      type="search"
+      class="form-control"
+      placeholder="Search customer by name"
+      #input
+      (input)="filterCustomers(input.value)"
+    />
+  </div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Profile</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (customer of customers; track $index) {
+      <tr>
+        <th><img [src]="fileBasePath + customer.filePath" alt="" /></th>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.contactNo }}</td>
+      </tr>
+      } @empty { No Customer Found }
+    </tbody>
+  </table>
+</div>

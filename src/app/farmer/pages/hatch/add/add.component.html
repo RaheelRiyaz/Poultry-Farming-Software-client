@@ -1,0 +1,71 @@
+<div class="card m-auto mb-3" style="max-width: 80%">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="../../../../../assets/images/poultryhatch.jpg"
+        class="img-fluid rounded-start fit-image"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8">
+      <h5 class="card-title text-center mt-2">New Hatch</h5>
+      <form #hatchForm="ngForm" class="card-body" (ngSubmit)="addNewHatch()">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="hatchRequest.name"
+            [class.is-invalid]="name.touched && name.invalid"
+            placeholder="Hatch name"
+          />
+          <label for="name">Hatch Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="noOfChicks"
+            name="noOfChicks"
+            placeholder="Total chicks"
+            #total="ngModel"
+            [(ngModel)]="hatchRequest.noOfChicks"
+            [class.is-invalid]="total.touched && total.invalid"
+          />
+          <label for="noOfChicks">Total Chicks</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="chickPerPrice"
+            name="chickPerPrice"
+            placeholder="chick price"
+            #chickPerPrice="ngModel"
+            [(ngModel)]="hatchRequest.chickPerPrice"
+            [class.is-invalid]="chickPerPrice.touched && chickPerPrice.invalid"
+          />
+          <label for="chickPerPrice">Chick price</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="datetime-local"
+            name="createdOn"
+            class="form-control"
+            id="createdOn"
+            placeholder="Hatch date"
+            [(ngModel)]="hatchRequest.createdOn"
+          />
+        </div>
+
+        <div class="d-grid mt-2">
+          <button class="btn btn-primary" [disabled]="hatchForm.invalid">
+            Add New Hatch
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<button class="btn btn-light ms-2 mb-2" routerLink="/farmer/hatches/add-motality/{{hatchId}}">Add Motality +</button>
+<div class="bs-example container" data-example-id="striped-table">
+    <table class="table table-striped table-bordered table-hover">
+      <caption>
+        Hatch motalities
+      </caption>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Cause</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (motality of motivalities; track $index) {
+        <tr>
+          <td>{{ motality.day }}</td>
+          <td>{{ motality.cause}}</td>
+          <td>{{ motality.noOfChicks }}</td>
+        </tr>
+        }
+
+        @empty {
+            No motality record Found
+        }
+      </tbody>
+    </table>
+  </div>
+  

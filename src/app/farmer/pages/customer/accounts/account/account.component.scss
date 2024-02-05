@@ -1,0 +1,17 @@
+ul {
+  position: relative;
+}
+
+.active {
+  border: 1px solid var(--primary-color);
+  left: 35px;
+  background-color: var(--btn-hover);
+  color: white;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 442px) {
+  .top {
+    width: 100%;
+  }
+}

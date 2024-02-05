@@ -1,0 +1,46 @@
+@if(customerDetails){
+<div class="card mb-3" style="max-width: 100%">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        [src]="basePath + customerDetails.filePath"
+        class="img-fluid rounded-start"
+        alt="profile"
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-title fs-5">
+          Name: {{ customerDetails.name | titlecase }}
+        </p>
+        <p class="card-title fs-5">Email: {{ customerDetails.email }}</p>
+        <p class="card-title fs-5">Contact: {{ customerDetails.contactNo }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="card mb-3" style="max-width: 100%">
+  <div class="row g-0">
+    <!-- Left Column with Loading Animation -->
+    <div class="col-md-4">
+      <div class="loading-animation-placeholder"></div>
+    </div>
+    <!-- Right Column with Card Details -->
+    <div class="col-md-8">
+      <div class="card-body p-54">
+        <!-- Card Title Loading Skeleton -->
+        <div class="loading-skeleton title"></div>
+
+        <!-- Card Text Loading Skeleton -->
+        <div class="loading-skeleton text"></div>
+        <div class="loading-skeleton text"></div>
+        <div class="loading-skeleton text"></div>
+
+        <!-- Last Updated Loading Skeleton -->
+        <div class="loading-skeleton last-updated"></div>
+      </div>
+    </div>
+  </div>
+</div>
+}

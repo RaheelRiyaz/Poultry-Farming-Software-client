@@ -1,0 +1,31 @@
+<div class="card m-auto" style="width: 100%">
+  <div class="card-body">
+    <h5 class="card-title">Hatch : {{ hatchinfo.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      Total Chicks : {{ hatchinfo.noOfChicks }}
+    </h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      Chick Price : {{ hatchinfo.chickPerPrice | currency : "INR" }}
+    </h6>
+    <div class="d-flex justify-content-start flex-wrap">
+      <button class="btn btn-light btn-sm mt-2 me-2">
+        Motalities: {{ hatchinfo.totalMotality }}
+      </button>
+      <button class="btn btn-light btn-sm mt-2 me-2">
+        Total Expenditure: {{ hatchinfo.totalExpenditure | currency : "INR" }}
+      </button>
+      <button class="btn btn-light btn-sm mt-2 me-2">
+        Total Sale: {{ hatchinfo.totalSale | currency : "INR" }}
+      </button>
+    </div>
+
+    <h5 class="mt-4">
+      Profit/loss status:
+      <span
+        [class.text-danger]="hatchinfo.profitOrLoss.toLowerCase() === 'loss'"
+        [class.text-success]="hatchinfo.profitOrLoss.toLowerCase() === 'profit'"
+        >{{ hatchinfo.profitOrLoss }}</span
+      >
+    </h5>
+  </div>
+</div>

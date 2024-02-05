@@ -1,0 +1,41 @@
+<div class="card m-auto" style="width: 70%">
+  <form #form class="card-body" (ngSubmit)="addCustomer(form)">
+    <div class="form-floating mb-3">
+      <input
+        type="name"
+        class="form-control"
+        id="name"
+        placeholder="Name"
+        name="name"
+      />
+      <label for="name">Name</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="name@example.com"
+      />
+      <label for="email">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="tel"
+        class="form-control"
+        id="contactNo"
+        placeholder="Contact"
+        name="contactNo"
+      />
+      <label for="contactNo">Contact</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="file" class="form-control" id="file" name="file" />
+      <label for="file">File</label>
+    </div>
+    <div class="d-grid mt-2">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

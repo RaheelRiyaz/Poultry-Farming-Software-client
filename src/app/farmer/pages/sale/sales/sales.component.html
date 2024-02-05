@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-start align-items-center flex-wrap sort-section">
+  <select
+    #select
+    class="form-select mb-2 me-3"
+    aria-label="Default select example"
+    (change)="filterSale(select.value)"
+  >
+    <option selected disabled>Sort</option>
+    <option [value]="1">Newly Added</option>
+    <option [value]="2">Pending Payment</option>
+    <option [value]="3">All</option>
+  </select>
+
+
+
+  <select
+    #select2
+    class="form-select mb-2"
+    aria-label="Default select example"
+    (change)="filterSaleByCustomer(select2.value)"
+  >
+    <option selected disabled>Sort by customer</option>
+    @for (customer of customers; track $index) {
+      <option [value]="customer.id">{{ customer.name | titlecase }}</option>
+      }
+  </select>
+</div>
+@for (sale of sales; track $index) {
+<div class="card mt-3" style="width: 80%">
+  <div class="card-body">
+    <h5 class="card-title">Customer :{{ sale.customerName }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      Email :{{ sale.customerEmail }}
+    </h6>
+    <div class="form-check form-switch form-check-reverse">
+      <input
+        class="form-check-input cursor-pointer"
+        type="checkbox"
+        #checkBox
+        [checked]="sale.paymentStatus === 1"
+        (change)="changePaymentStatus(sale.id, checkBox.checked)"
+        id="flexSwitchCheckReverse"
+      />
+      <label class="form-check-label" for="flexSwitchCheckReverse"
+        >Payment Status</label
+      >
+    </div>
+    <div class="d-flex justify-content-start align-items-center flex-wrap">
+      <button class="btn btn-light me-2 mt-2">
+        Noofkilograms: {{ sale.noOfKilograms }} kgs
+      </button>
+      <button class="btn btn-light mt-2 me-2">
+        Rate :{{ sale.rate | currency : "INR" }}
+      </button>
+      <button class="btn btn-light mt-2 me-2">
+        Total :{{ sale.totalAmount | currency : "INR" }}
+      </button>
+      <button class="btn btn-light mt-2 me-2">
+        Payment Status :{{ sale.paymentStatus === 1 ? "Paid" : "Pending" }}
+      </button>
+      <button class="btn btn-light mt-2 me-2">
+        Sale-Date :{{ sale.saleDate | date }}
+      </button>
+    </div>
+    <div
+      class="d-flex justify-content-between align-items-center mt-4 flex-wrap bill-container"
+    >
+      <button
+        class="btn details"
+        [routerLink]="['/farmer/customers/details', sale.customerId]"
+      >
+        Customer Details
+      </button>
+      <button class="btn bill btn-sm" [routerLink]="['/farmer//hatches/generate-bill',sale.customerId,sale.hatchId]">Generate Bill</button>
+    </div>
+  </div>
+</div>
+} @empty {
+<div class="alert alert-warning mt-2">No Sale Found</div>
+}

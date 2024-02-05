@@ -1,0 +1,70 @@
+<div class="LoginPageContainer">
+  <div class="LoginPageInnerContainer">
+    <div class="ImageContianer">
+      <img src="https://i.imgur.com/MYZd7of.png" class="GroupImage" />
+    </div>
+    <div class="LoginFormContainer">
+      <div class="LoginFormInnerContainer">
+        <!-- <div class="LogoContainer">
+          <img
+            src="https://www.pngkey.com/png/full/529-5291672_sample-logo-png-transparent-background.png"
+            class="logo"
+          />
+        </div> -->
+        <header class="header">Log in</header>
+        <header class="subHeader">
+          Welcome to <b>poultry farming world!</b> Please Enter your Details
+        </header>
+
+        <form #loginForm="ngForm" (ngSubmit)="login()">
+          <div class="inputContainer">
+            <label class="label" for="emailAddress"
+              ><img
+                src="https://i.imgur.com/Hn13wvm.png"
+                class="labelIcon"
+              /><span>Email Address or Username*</span></label
+            >
+            <input
+              type="email"
+              class="input"
+              id="emailAddress"
+              placeholder="Enter your Email Address"
+              name="userName"
+              [(ngModel)]="loginRequst.userName"
+              required
+              #userName="ngModel"
+              [class.is-invalid]="userName.touched && userName.invalid"
+            />
+          </div>
+          <div class="inputContainer">
+            <label class="label" for="password"
+              ><img
+                src="https://i.imgur.com/g5SvdfG.png"
+                class="labelIcon"
+              /><span>Password*</span></label
+            >
+            <input
+              type="password"
+              class="input"
+              id="password"
+              placeholder="Enter your Password"
+              name="password"
+              [(ngModel)]="loginRequst.password"
+              required
+              #password="ngModel"
+              [class.is-invalid]="password.touched && password.invalid"
+            />
+          </div>
+          <div class="OptionsContainer">
+            <div class="checkboxContainer">
+              <input type="checkbox" id="RememberMe" class="checkbox" />
+              <label for="RememberMe">Remember me</label>
+            </div>
+            <a href="#" class="ForgotPasswordLink">Forgot Password?</a>
+          </div>
+          <button class="LoginButton">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

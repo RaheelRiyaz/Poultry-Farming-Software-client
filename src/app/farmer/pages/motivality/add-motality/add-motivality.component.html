@@ -1,0 +1,46 @@
+<div class="card m-auto" style="width: 70%">
+  <form #addForm="ngForm" class="card-body" (ngSubmit)="addMotality()">
+    <div class="form-floating mb-3">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="day"
+        [(ngModel)]="motalityRequest.day"
+      >
+        <option selected [ngValue]="0">Select Day</option>
+        <option [ngValue]="1">Sunday</option>
+        <option [ngValue]="2">Monday</option>
+        <option [ngValue]="3">Tuesday</option>
+        <option [ngValue]="4">Wednesday</option>
+        <option [ngValue]="5">Thirsday</option>
+        <option [ngValue]="6">Friday</option>
+        <option [ngValue]="7">Saturday</option>
+      </select>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="number"
+        class="form-control"
+        id="noOfChicks"
+        placeholder="noOfChicks"
+        name="noOfChicks"
+        [(ngModel)]="motalityRequest.noOfChicks"
+      />
+      <label for="floatingPassword">Total chicks</label>
+    </div>
+
+    <div class="mb-3">
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        name="cause"
+        placeholder="Cause"
+        [(ngModel)]="motalityRequest.cause"
+      ></textarea>
+    </div>
+    <div class="d-grid">
+      <button class="btn btn-primary">Add Record</button>
+    </div>
+  </form>
+</div>
